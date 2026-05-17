@@ -55,6 +55,8 @@ RUN git clone --depth=1 https://github.com/ZorinOS/zorin-icon-themes.git /tmp/zo
 RUN mkdir -p /usr/share/backgrounds/zorin && \
     wget -q "https://raw.githubusercontent.com/ZorinOS/zorin-wallpapers/master/backgrounds/Zorin-12-Light.png" -O /usr/share/backgrounds/zorin/zorin.jpg 2>/dev/null || true
 
+COPY wallpapers/ /usr/share/backgrounds/zorin/
+
 RUN useradd -m -s /bin/bash -G sudo zorin && \
     echo "zorin:zorin" | chpasswd && \
     echo "zorin ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/zorin && \

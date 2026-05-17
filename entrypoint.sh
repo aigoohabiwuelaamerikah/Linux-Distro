@@ -34,8 +34,8 @@ vncserver :1 -geometry "$VNC_RESOLUTION" -depth "$VNC_DEPTH" -localhost no
     xfconf-query -c xsettings -p /Net/IconThemeName -s "Zorin" 2>/dev/null || true
     xfconf-query -c xfwm4 -p /general/theme -s "ZorinBlue-Dark" 2>/dev/null || true
 
-    WALLPAPER=$(find /usr/share/backgrounds/zorin -type f | shuf -n 1)
-    if [ -n "$WALLPAPER" ]; then
+    WALLPAPER="/usr/share/backgrounds/zorin/picsum-3.jpg"
+    if [ -f "$WALLPAPER" ]; then
         xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s "$WALLPAPER" 2>/dev/null || true
         for prop in $(xfconf-query -c xfce4-desktop -l 2>/dev/null | grep "last-image"); do
             xfconf-query -c xfce4-desktop -p "$prop" -s "$WALLPAPER" 2>/dev/null || true
