@@ -1,7 +1,6 @@
 services:
   zorin:
-    build: .
-    image: linux-distro-zorin
+    image: ghcr.io/aigoohabiwuelaamerikah/linux-distro-zorin:latest
     ports:
       - "5901:5901"
       - "6080:6080"
